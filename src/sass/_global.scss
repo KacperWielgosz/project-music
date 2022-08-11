@@ -1,0 +1,22 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: $color-dark;
+  font-family: $font-global;
+  font-weight: $font-regular;
+  color: $color-light;
+}
+
+.pages {
+  padding-top: 20px;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+  
