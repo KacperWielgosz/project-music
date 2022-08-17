@@ -10,82 +10,89 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="header">
-            <div class="header-wrapper">
-                <div class="header-content">
-                    <h1 class="header-title">Taste</h1>
-                    <p class="header-subtitle">Engage<br> in<br> art</p>
-                </div>
-            </div>
-            <div class="container main-nav">
-                <a href="#home">Home</a>
-                <a href="#search">Search</a>
-                <a href="#discover">Discover</a>
-            </div>
-    </header>
-
-    <div id="pages">
-        <section id="home" class="container">
-        </section>
-        <section id="search" class="container">
-            <h2 class="page-title">SEARCH</h2>
-            <div class="form">
-                <label>Name</label>
-                <input id="search_input" type="text">
-                <button type="button">search</button>
-            </div>
-            <p>We have found {{namberValue}}</p>
-        </section>
-        <section id="discover" class="container">
-            <h2 class="page-title">DISCOVER</h2>
-            <p>Give it a try!</p>
-        </section>
-        <section id="join-now" class="container">
-        </section>
+  <header class="header">
+    <div class="header-wrapper">
+      <div class="header-content">
+        <h1 class="header-title">Taste</h1>
+        <p class="header-subtitle">Engage<br> in<br> art</p>
+      </div>
     </div>
-
-    <div id="song-list" class="song-list container"></div>
-    <script id="template-song-widget" type="text/x-handlebars-template">
-        <div class="container">
-            <div class="song_name">
-                <p>{{author}} - {{title}}</p>
-            </div>
-            <div class="gap">
-                    <audio>
-                        <source src="db/songs/{{song}}" type="audio/mpeg">
-                    </audio>
-            </div>
-        <div class ="song_description">
-            <div class="song_description_categories">Categories: {{categories}}</div>
-            <div class="song_description_ranking">#{{ranking}} in the ranking</div>
-        </div>
-    </script>
-
-    <div class="subscribe">
-        <div class="container">
-            <h1>Subscribe<span>now</span></h1>
-            <div class="row">
-                <div class="btn subscribe-button">
-                <a href="#join-now">join now</a>
-                </div>
-                <div class="subscribe-content">
-                    <p>Dean</p>
-                    <p>Hen<span>son</span></p>
-                    <img src="./images/artist.jpg" alt="artist">
-                    <p>new album</p>
-                    <p>Available only for subscribers</p>
-                </div>
-            </div>
-        </div>
+    <div class="container main-nav">
+      <a href="#home">Home</a>
+      <a href="#search">Search</a>
+      <a href="#discover">Discover</a>
     </div>
-
-    <footer>
-        <div class="container">
-            <p>All rights reserved</p>
+  </header>
+  <div id="pages">
+    <section id="home">
+      <div class="home-wrapper"></div>
+      <div class="subscribe">
+        <h1 class="subscribe-title"><span>Subscribe</span>now</h1>
+        <div class="row">
+          <div class="btn subscribe-button">
+              <a href="#join-now">join now</a>
+          </div>
+          <div class="album">
+            <div class="album-title">
+              <p>Dean</p>
+              <p>Hen<span>son</span></p>
+            </div>
+            <div class="album-image">
+              <img src="./images/artist.jpg" alt="artist">
+            </div>
+            <div class="album-subtitle">
+              <p>new album</p>
+              <p>Available only for subscribers</p>
+            </div>
+          </div>
         </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
-    <script src="js/app.js" type="module"></script>
+      </div>
+    </section>
+  <section id="search" class="search container">
+    <h2 class="page-title">SEARCH</h2>
+    <div class="search-form">
+      <label>Name</label>
+      <input id="search-input" type="text">
+      <button type="button">search</button>
+    </div>
+    <p class="result-amount-wrapper page-subtitle"></p>
+    <div class="search-wrapper"></div>
+  </section>
+  <section id="discover" class="discover container">
+    <h2 class="page-title">DISCOVER</h2>
+    <p class="page-subtitle">Give it a try!</p>
+    <div class="discover-wrapper">
+    </div>
+  </section>
+  <section id="join-now" class="container">
+  </section>
+  </div>
+  <script id="template-song-widget" type="text/x-handlebars-template">
+    <div class="container song-wrapper">
+      <div class="song-name">
+        <p><span class="song-author">{{author}}</span> - {{title}}</p>
+      </div>
+      <div class="gap">
+        <audio>
+          <source src="db/songs/{{song}}" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class ="song_description">
+        <div class="song_description_categories">Categories: {{categories}}</div>
+        <div class="song_description_ranking">#{{ranking}} in the ranking</div>
+      </div>
+    </div>
+  </script>
+  <script id="template-result-amount" type="text/x-handlebars-template">
+    <p class="result-amount-text">We have found {{number}}...</p>
+  </script>
+  <footer>
+    <div class="container">
+      <p>All rights reserved</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+  <script src="js/app.js" type="module"></script>
 </body>
 </html>

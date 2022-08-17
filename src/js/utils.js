@@ -5,9 +5,3 @@ utils.createDOMFromHTML = function(htmlString) {
   div.innerHTML = htmlString.trim();
   return div.firstChild;
 };
-
-utils.getAuthor = function(text){
-  text = text.replace('_');
-
-  return text;
-};

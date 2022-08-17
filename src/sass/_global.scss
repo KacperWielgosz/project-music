@@ -19,4 +19,35 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
-  
+
+#pages {
+  > * {
+    display: none;
+  }
+
+  > .active {
+    display: block;
+  }
+}
+
+.page-title{
+  font-size: 60px;
+  text-align: center;
+  font-weight: $font-middle;
+  letter-spacing: 10px;
+  color: $color-medium;
+}
+
+.page-subtitle{
+  margin: 70px 0;
+  font-size: 30px;
+  font-weight: $font-middle;
+  text-align: center;
+}
+
+footer{
+  margin-top: 50px;
+  text-align: center;
+  font-weight: $font-regular;
+  font-size: 20px;
+}

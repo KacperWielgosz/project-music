@@ -1,8 +1,8 @@
 import { settings, select, classNames } from './settings.js';
-
 import Song from './components/Song.js';
 import SearchWidget from './components/SearchWidget.js';
 import DiscoverSong from './components/DiscoverSong.js';
+
 
 const app = {
 
@@ -32,43 +32,28 @@ const app = {
         const clickedElement = this;
         event.preventDefault();
 
-        /* get page id from href attribute */
-
         const id = clickedElement.getAttribute('href').replace('#', '');
-
-        /* run thisApp.activatePage with id */
 
         thisApp.activatePage(id);
 
-        /* change URL hash */
-
         window.location.hash = '#/' + id;
-
       });
     }
   },
 
-
-
   activatePage: function(pageId){
     const thisApp = this;
-
-    /* add class active to matching page, remove from non-matching */
 
     for (let page of thisApp.pages){
       page.classList.toggle(classNames.pages.active, page.id == pageId);
     }
 
-    console.log('pageID', pageId);
-
-    /* add class active to matching page, remove from non-matching */
     for (let link of thisApp.navLinks){
       link.classList.toggle(
         classNames.nav.active,
         link.getAttribute('href') == '#' + pageId
       );
     }
-
   },
 
   initData: function(){
@@ -76,7 +61,6 @@ const app = {
 
     const url = settings.db.url + '/' + settings.db.songs;
     thisApp.data = {};
-    console.log(url)
 
     fetch(url)
       .then(function(rawResponse){
@@ -86,30 +70,24 @@ const app = {
 
         thisApp.data.songs = parsedResponse;
 
-        const pageId = window.location.hash.replace('#/', '');
-        console.log('pageId', pageId);
-
-        if (pageId == 'home'){
-          thisApp.initSongs();
-        } else if (pageId == 'search'){
-          thisApp.initSearchWidget();
-        } else if(pageId == 'discover'){
-          thisApp.initDiscoverSong();
-        }
+        thisApp.initSongs();
+        thisApp.initDiscoverSong();
+        thisApp.initSearchWidget();
       });
   },
 
   initSongs(){
     const thisApp = this;
 
+    const homeWrapper = document.querySelector(select.containerOf.home);
     for(let song in thisApp.data.songs){
 
-      new Song(thisApp.data.songs[song]);
+      new Song(thisApp.data.songs[song], homeWrapper);
     }
 
     // eslint-disable-next-line no-undef
     GreenAudioPlayer.init({
-      selector: '.gap',
+      selector: '.home-wrapper .gap',
       stopOthersOnPlay: true
     });
   },

@@ -1,0 +1,40 @@
+.search-form {
+  margin-top: 20px;
+  margin: 0 auto;
+
+  label{
+    font-size: 30px;
+    color: $color-medium;
+    font-weight: $font-middle;
+    letter-spacing: 5px;
+  }
+
+  input{
+    width: 355px;
+    height: 60px;
+    border: 0px;
+    border-radius: 10px;
+    font-family: $font-global;
+    font-size: 30px;
+    font-weight: $font-regular;
+    margin: 0 20px;
+  }
+
+  button {
+    background-color: $color-main;
+    color: $color-light;
+    height: 60px;
+    width: 140px;
+    border: 0px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+}
+
+.result-amount-wrapper{
+  margin: 70px 0;
+  font-size: 30px;
+  font-weight: $font-middle;
+  text-align: center;
+}

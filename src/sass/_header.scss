@@ -4,7 +4,7 @@
   background-position: center;
   width: 100%;
   height: 100vh;
-  min-height: 500px;
+  min-height: 300px;
   position: relative;
 }
 
@@ -28,13 +28,14 @@
   margin-top: 0px;
   font-size: 36px;
   line-height: 60px;
-  letter-spacing: 15px;
+  letter-spacing: 10px;
 }
 
 .main-nav {
   text-transform: uppercase;
   text-align: center;
   padding-top: 20px;
+  padding-bottom: 30px;
   display: flex;
   justify-content: space-between;
 
@@ -43,36 +44,35 @@
     @extend .h2;
     text-decoration: none;
     color: $color-medium;
-    font-weight: $font-semibold;
-
-
 
     &.active{
       color: $color-light;
       transition: $transition;
     }
   }
-
-  a:hover{
-    font-size: 36px;
-  }
-
 }
 
 
-@media (max-width: 800px) {
+@media only screen and (max-width: 767px) {
   .header-wrapper{
-    min-height: 300px;
+    height: 100vh;
+    min-height: 100px;
+    width: 100%;
+    background-size: cover;
   }
 
   .header-title {
-    font-size: 60px;
-    letter-spacing: 20px;
-  }
-
-  .header-subtitle {
-    font-size: 20px;
+    font-size: 70px;
     letter-spacing: 10px;
   }
 
+  .header-subtitle {
+    font-size: 30px;
+    letter-spacing: 10px;
+  }
+
+  .main-nav a {
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
 }
